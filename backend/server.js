@@ -8,6 +8,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json()); // middleware to parse JSON body
+
 app.use("/api/auth", authRoutes);
 
 app.listen(PORT, () => {
@@ -15,3 +17,5 @@ app.listen(PORT, () => {
 
   connectDB();
 });
+
+export default app;
